@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#F4EFE6" />
+<title>Ply. — Heavyweight Cotton Tee</title>
+<meta name="description" content="Ply. A premium heavyweight cotton tee label. 280gsm, garment-dyed, cut to drape clean. Made for the layer." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  /* ===== Brand tokens (from ply-brand-book v1) ===== */
+  :root{
+    --bone:#F4EFE6;
+    --ink:#1A1A1A;
+    --sage:#A8B5A0;
+    --terracotta:#C97B5A;
+    --stone:#C9C0B5;
+    --cream:#FBF7F0;
+    --rule:#E0D8CC;
+    --muted:#7A7368;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--bone);color:var(--ink);font-family:'Inter',sans-serif;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased}
+  body{padding:0;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+  .serif{font-family:'Fraunces',serif;font-weight:300;font-style:italic}
+  .display{font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-0.03em;line-height:0.95}
+  .eyebrow{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .lede{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(20px,2.2vw,28px);line-height:1.45;color:#2a2a2a;max-width:760px}
+
+  /* ===== Top bar ===== */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(244,239,230,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+  .topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;max-width:1240px;margin:0 auto}
+  .logo{font-family:'Outfit',sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.04em;line-height:1;color:var(--ink)}
+  .logo .period{color:var(--terracotta)}
+  .nav{display:flex;align-items:center;gap:32px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink);font-weight:500}
+  .nav a{position:relative;padding-bottom:4px}
+  .nav a.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:var(--terracotta)}
+  .nav a:hover{color:var(--terracotta)}
+  .cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500}
+  .cart-count{position:absolute;top:-8px;right:-12px;background:var(--terracotta);color:var(--cream);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;letter-spacing:0}
+  .cart-count:empty,.cart-count[data-count="0"]{display:none}
+
+  /* ===== Hero ===== */
+  .hero{padding:80px 0 56px;position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:end}
+  .hero-copy h1{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(72px,11vw,180px);letter-spacing:-0.05em;line-height:0.85;color:var(--ink);margin-bottom:24px}
+  .hero-copy h1 .period{color:var(--terracotta)}
+  .hero-tag{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(20px,2.4vw,32px);color:var(--ink);max-width:520px;margin-bottom:32px;line-height:1.35}
+  .hero-cta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+  .btn-primary{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--bone);padding:16px 32px;font-family:'Inter',sans-serif;font-weight:500;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;transition:background .2s ease}
+  .btn-primary:hover{background:var(--terracotta)}
+  .btn-primary .arrow{font-family:'Inter',sans-serif;font-size:14px;transition:transform .2s ease}
+  .btn-primary:hover .arrow{transform:translateX(4px)}
+  .hero-meta{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .hero-image{aspect-ratio:4/5;background:var(--cream);overflow:hidden;position:relative}
+  .hero-image img{width:100%;height:100%;object-fit:cover}
+  .hero-image .cap{position:absolute;bottom:16px;left:16px;background:rgba(244,239,230,0.92);padding:6px 12px;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink)}
+
+  /* ===== Section heads ===== */
+  .sec-head{display:grid;grid-template-columns:1fr 2fr;gap:64px;margin-bottom:64px;align-items:end}
+  .sec-head .eyebrow{margin-bottom:0}
+  .sec-num{font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;color:var(--terracotta);letter-spacing:0.18em;display:block;margin-bottom:8px}
+  h2.section-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(40px,5vw,72px);letter-spacing:-0.03em;line-height:1;color:var(--ink)}
+  .section-dark h2.section-title{color:var(--bone)}
+
+  /* ===== Products grid ===== */
+  .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .product-card{position:relative;background:transparent}
+  .product-image{aspect-ratio:4/5;background:var(--cream);overflow:hidden;position:relative;margin-bottom:24px;cursor:pointer}
+  .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .product-card:hover .product-image img{transform:scale(1.03)}
+  .product-tag{position:absolute;top:16px;left:16px;background:var(--bone);color:var(--ink);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;padding:6px 10px;font-weight:500}
+  .product-quick{position:absolute;bottom:0;left:0;right:0;background:var(--ink);color:var(--bone);padding:16px;text-align:center;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500;transform:translateY(100%);transition:transform .3s ease}
+  .product-card:hover .product-quick{transform:translateY(0)}
+  .product-meta{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .product-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em}
+  .product-price{font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:var(--muted);letter-spacing:0.04em}
+  .product-sub{font-size:13px;color:var(--muted);line-height:1.5}
+
+  /* ===== Featured detail ===== */
+  .detail-section{padding:120px 0;border-top:1px solid var(--rule)}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .detail-grid.reverse{grid-template-columns:1fr 1fr;direction:rtl}
+  .detail-grid.reverse > *{direction:ltr}
+  .detail-images{display:grid;gap:16px}
+  .detail-img{aspect-ratio:4/5;background:var(--cream);overflow:hidden}
+  .detail-img img{width:100%;height:100%;object-fit:cover}
+  .detail-img.tall{aspect-ratio:3/4}
+  .detail-img.square{aspect-ratio:1/1}
+  .detail-img-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .detail-info{position:sticky;top:120px}
+  .detail-name{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(36px,4.5vw,64px);letter-spacing:-0.03em;line-height:0.95;margin-bottom:8px}
+  .detail-tag{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:18px;color:var(--muted);margin-bottom:24px}
+  .detail-price{font-family:'Inter',sans-serif;font-weight:500;font-size:18px;margin-bottom:32px;letter-spacing:0.04em}
+  .spec-strip{border-top:1px solid var(--rule);padding:18px 0;display:grid;grid-template-columns:120px 1fr;gap:24px;font-size:14px;line-height:1.5}
+  .spec-strip .spec-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .spec-strip .spec-value{color:var(--ink)}
+  .size-selector{margin-top:32px}
+  .size-selector .row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+  .size-selector .row .label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .size-selector .row a{font-size:12px;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+  .size-options{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .size-btn{border:1px solid var(--rule);padding:14px 8px;font-family:'Inter',sans-serif;font-weight:500;font-size:13px;letter-spacing:0.08em;transition:all .15s ease;text-align:center}
+  .size-btn:hover{border-color:var(--ink)}
+  .size-btn.selected{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+  .size-btn[data-stock="out"]{color:var(--rule);text-decoration:line-through;cursor:not-allowed}
+  .size-btn[data-stock="out"]:hover{border-color:var(--rule)}
+  .qty-row{display:grid;grid-template-columns:120px 1fr;gap:24px;margin-top:24px;align-items:center}
+  .qty-control{display:inline-flex;border:1px solid var(--rule);align-items:center}
+  .qty-control button{width:40px;height:48px;font-size:18px;color:var(--ink)}
+  .qty-control button:hover{background:var(--cream)}
+  .qty-control .qty{width:48px;text-align:center;font-weight:500;font-size:14px}
+  .add-to-cart{margin-top:32px;width:100%;background:var(--ink);color:var(--bone);padding:18px;font-family:'Inter',sans-serif;font-weight:500;font-size:12px;letter-spacing:0.24em;text-transform:uppercase;transition:background .2s ease;display:flex;align-items:center;justify-content:center;gap:12px}
+  .add-to-cart:hover{background:var(--terracotta)}
+  .add-to-cart.added{background:var(--sage);color:var(--ink)}
+  .shipping-note{margin-top:16px;font-size:12px;color:var(--muted);text-align:center;letter-spacing:0.04em}
+  .accordion{margin-top:48px;border-top:1px solid var(--rule)}
+  .accordion details{border-bottom:1px solid var(--rule);padding:20px 0}
+  .accordion summary{font-family:'Inter',sans-serif;font-weight:500;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .accordion summary::after{content:'+';font-size:18px;color:var(--muted);transition:transform .2s ease}
+  .accordion details[open] summary::after{transform:rotate(45deg)}
+  .accordion .panel{padding-top:16px;font-size:14px;color:var(--ink);line-height:1.7;max-width:560px}
+
+  /* ===== Fabric story ===== */
+  .fabric{background:var(--ink);color:var(--bone);padding:140px 0}
+  .fabric h2{color:var(--bone)}
+  .fabric .eyebrow{color:var(--sage)}
+  .fabric .sec-num{color:var(--terracotta)}
+  .fabric p{color:#C9C0B5}
+  .fabric-lede{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:clamp(24px,3vw,40px);line-height:1.4;color:var(--bone);max-width:880px;margin:32px 0 80px}
+  .fabric-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;margin-top:64px;padding-top:64px;border-top:1px solid #2a2a2a}
+  .fabric-stat .val{font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(48px,6vw,80px);letter-spacing:-0.04em;line-height:1;color:var(--bone)}
+  .fabric-stat .val .unit{font-size:32px;color:var(--sage);font-style:italic;font-weight:300}
+  .fabric-stat .label{font-size:12px;color:var(--sage);margin-top:12px;letter-spacing:0.16em;text-transform:uppercase;font-weight:500}
+  .fabric-images{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  .fabric-images .detail-img{aspect-ratio:1/1}
+
+  /* ===== Lifestyle gallery ===== */
+  .lifestyle{padding:120px 0}
+  .lifestyle-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:16px}
+  .lifestyle-tile{overflow:hidden;background:var(--cream);position:relative}
+  .lifestyle-tile img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .lifestyle-tile:hover img{transform:scale(1.04)}
+  .l1{grid-column:span 7;grid-row:span 2}
+  .l2{grid-column:span 5;grid-row:span 1}
+  .l3{grid-column:span 5;grid-row:span 1}
+
+  /* ===== Footer ===== */
+  footer{padding:80px 0 48px;background:var(--bone);border-top:1px solid var(--rule)}
+  .foot{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:48px;margin-bottom:64px}
+  .foot-col h4{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:16px}
+  .foot-col ul{list-style:none;padding:0}
+  .foot-col li{padding:6px 0;font-size:14px;color:var(--ink)}
+  .foot-col li a:hover{color:var(--terracotta)}
+  .foot-mark{grid-column:span 4;padding-right:48px}
+  .foot-mark .word{font-family:'Outfit',sans-serif;font-weight:800;font-size:48px;letter-spacing:-0.04em;line-height:1;color:var(--ink)}
+  .foot-mark .word .period{color:var(--terracotta)}
+  .foot-mark .tag{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:14px;color:var(--muted);margin-top:12px}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:end;padding-top:32px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .foot-bottom .links{display:flex;gap:24px}
+  .foot-bottom .links a:hover{color:var(--terracotta)}
+
+  /* ===== Cart drawer ===== */
+  .drawer-bg{position:fixed;inset:0;background:rgba(0,0,0,0.4);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:99}
+  .drawer-bg.open{opacity:1;pointer-events:auto}
+  .cart-drawer{position:fixed;top:0;right:0;bottom:0;width:420px;max-width:100vw;background:var(--bone);transform:translateX(100%);transition:transform .3s ease;z-index:100;display:flex;flex-direction:column;box-shadow:-4px 0 24px rgba(0,0,0,0.08)}
+  .cart-drawer.open{transform:translateX(0)}
+  .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:24px 28px;border-bottom:1px solid var(--rule)}
+  .drawer-head h3{font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.01em}
+  .drawer-close{font-size:20px;color:var(--ink)}
+  .drawer-body{flex:1;overflow-y:auto;padding:24px 28px}
+  .drawer-empty{text-align:center;padding:64px 0;color:var(--muted);font-size:14px}
+  .cart-item{display:grid;grid-template-columns:80px 1fr auto;gap:16px;padding:20px 0;border-bottom:1px solid var(--rule);align-items:start}
+  .cart-item-img{aspect-ratio:4/5;background:var(--cream);overflow:hidden}
+  .cart-item-img img{width:100%;height:100%;object-fit:cover}
+  .cart-item-name{font-family:'Outfit',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.01em;margin-bottom:4px}
+  .cart-item-meta{font-size:12px;color:var(--muted);letter-spacing:0.04em;margin-bottom:8px}
+  .cart-item-remove{font-size:11px;color:var(--muted);text-decoration:underline;background:none;border:none;cursor:pointer;padding:0;letter-spacing:0.04em}
+  .cart-item-remove:hover{color:var(--terracotta)}
+  .cart-item-price{font-family:'Inter',sans-serif;font-weight:500;font-size:14px}
+  .cart-item-qty{display:inline-flex;border:1px solid var(--rule);margin-top:4px}
+  .cart-item-qty button{width:28px;height:28px;font-size:14px;color:var(--ink)}
+  .cart-item-qty button:hover{background:var(--cream)}
+  .cart-item-qty span{width:32px;text-align:center;line-height:28px;font-size:13px;font-weight:500}
+  .drawer-foot{padding:24px 28px;border-top:1px solid var(--rule);background:var(--cream)}
+  .drawer-totals{display:flex;justify-content:space-between;margin-bottom:6px;font-size:13px;color:var(--muted)}
+  .drawer-total{display:flex;justify-content:space-between;font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;margin-top:12px;padding-top:12px;border-top:1px solid var(--rule)}
+  .drawer-foot .btn-primary{width:100%;justify-content:center;margin-top:16px}
+  .drawer-foot .btn-secondary{display:block;text-align:center;width:100%;margin-top:12px;padding:14px;background:transparent;border:1px solid var(--rule);color:var(--ink);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;font-weight:500}
+  .drawer-foot .btn-secondary:hover{border-color:var(--ink)}
+
+  /* ===== Toast ===== */
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:var(--bone);padding:14px 24px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500;z-index:200;transition:transform .3s ease;box-shadow:0 8px 32px rgba(0,0,0,0.16)}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  /* ===== Responsive ===== */
+  @media (max-width:960px){
+    .topbar-inner{padding:14px 20px}
+    .wrap{padding:0 20px}
+    .hero{padding:48px 0 32px}
+    .hero-grid{grid-template-columns:1fr;gap:32px}
+    .hero-image{aspect-ratio:4/5;order:-1}
+    .sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:32px}
+    .products-grid{grid-template-columns:1fr;gap:32px}
+    .detail-grid,.detail-grid.reverse{grid-template-columns:1fr;gap:32px;direction:ltr}
+    .detail-info{position:static}
+    .fabric-stats{grid-template-columns:1fr 1fr;gap:32px}
+    .fabric{padding:80px 0}
+    .lifestyle{padding:80px 0}
+    .detail-section{padding:80px 0}
+    .lifestyle-grid{grid-auto-rows:160px}
+    .l1,.l2,.l3{grid-column:span 12;grid-row:span 1}
+    .foot{grid-template-columns:1fr 1fr;gap:32px}
+    .foot-mark{grid-column:span 2;padding-right:0}
+    .nav{gap:16px;font-size:11px}
+    .nav .hide-mobile{display:none}
+    .foot-bottom{flex-direction:column;gap:16px;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="logo">Ply<span class="period">.</span></a>
+    <nav class="nav">
+      <a href="#shop" class="active hide-mobile">Shop</a>
+      <a href="#story" class="hide-mobile">Story</a>
+      <a href="#fabric" class="hide-mobile">Fabric</a>
+      <a href="#lifestyle" class="hide-mobile">Field</a>
+      <button class="cart-btn" id="openCart" aria-label="Open cart">
+        Cart
+        <span class="cart-count" id="cartCount" data-count="0"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Ply<span class="period">.</span></h1>
+        <p class="hero-tag">A premium heavyweight cotton tee label, built on weight, restraint, and a single fabric story.</p>
+        <div class="hero-cta">
+          <a href="#shop" class="btn-primary">Shop the tee <span class="arrow">→</span></a>
+          <span class="hero-meta">280gsm · Garment-dyed · Made for the layer</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/white-tee-model.jpg" alt="Asian male model in bone-white Ply heavyweight tee, leaning against a Hong Kong concrete balcony with harbor view" />
+        <div class="cap">Plate 01 · The Bone Tee · Mid-Levels, HK</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP / PRODUCTS GRID -->
+<section class="pad-section" id="shop" style="padding:96px 0;border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">01</span>
+        <span class="eyebrow">The Collection</span>
+      </div>
+      <div>
+        <h2 class="section-title">Two tees.<br>The same fabric.</h2>
+      </div>
+    </div>
+
+    <div class="products-grid">
+      <a href="#bone" class="product-card">
+        <div class="product-image">
+          <img src="images/white-tee-model.jpg" alt="The Bone Tee — bone-white Ply heavyweight cotton t-shirt on model" />
+          <span class="product-tag">01</span>
+          <div class="product-quick">View details</div>
+        </div>
+        <div class="product-meta">
+          <div class="product-name">The Bone Tee</div>
+          <div class="product-price">HK$ 480</div>
+        </div>
+        <div class="product-sub">280gsm · bone-white garment-dyed cotton</div>
+      </a>
+
+      <a href="#ink" class="product-card">
+        <div class="product-image">
+          <img src="images/black-tee-model.jpg" alt="The Ink Tee — deep black Ply heavyweight cotton t-shirt on model" />
+          <span class="product-tag">02</span>
+          <div class="product-quick">View details</div>
+        </div>
+        <div class="product-meta">
+          <div class="product-name">The Ink Tee</div>
+          <div class="product-price">HK$ 480</div>
+        </div>
+        <div class="product-sub">280gsm · ink-black garment-dyed cotton</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL: BONE TEE -->
+<section class="detail-section" id="bone">
+  <div class="wrap">
+    <div class="detail-grid">
+      <div class="detail-images">
+        <div class="detail-img">
+          <img src="images/white-tee-model.jpg" alt="The Bone Tee on model, Hong Kong concrete balcony" />
+        </div>
+        <div class="detail-img-row">
+          <div class="detail-img square">
+            <img src="images/white-tee-detail.jpg" alt="Hand pressing into bone cotton fabric, macro detail showing weight" />
+          </div>
+          <div class="detail-img square">
+            <img src="images/black-tee-street.jpg" alt="Black tee shot from behind on Hong Kong city street" />
+          </div>
+        </div>
+      </div>
+      <div class="detail-info">
+        <h2 class="detail-name">The Bone Tee</h2>
+        <div class="detail-tag">A heavyweight cotton tee, in unbleached cotton tone.</div>
+        <div class="detail-price">HK$ 480</div>
+
+        <div class="spec-strip"><span class="spec-label">Fabric</span><span class="spec-value">100% long-staple cotton, 280gsm heavyweight jersey, garment-dyed for soft hand-feel and lived-in color depth.</span></div>
+        <div class="spec-strip"><span class="spec-label">Fit</span><span class="spec-value">Relaxed through the chest, tapered at the hem. Cut to drape clean over a body at rest.</span></div>
+        <div class="spec-strip"><span class="spec-label">Origin</span><span class="spec-value">Knit + sewn in Guangzhou, China. Cotton sourced from Xinjiang long-staple.</span></div>
+        <div class="spec-strip"><span class="spec-label">Care</span><span class="spec-value">Cold wash inside-out. Hang dry. Iron low. No bleach. No fabric softener.</span></div>
+
+        <div class="size-selector">
+          <div class="row">
+            <span class="label">Size</span>
+            <a href="#" onclick="event.preventDefault();document.getElementById('sizeGuide').open=true">Size guide</a>
+          </div>
+          <div class="size-options" data-product="bone">
+            <button class="size-btn" data-size="XS">XS</button>
+            <button class="size-btn selected" data-size="S">S</button>
+            <button class="size-btn" data-size="M">M</button>
+            <button class="size-btn" data-size="L">L</button>
+            <button class="size-btn" data-stock="out" data-size="XL">XL</button>
+          </div>
+        </div>
+
+        <div class="qty-row">
+          <span class="spec-label" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500">Quantity</span>
+          <div class="qty-control" data-product="bone">
+            <button data-action="dec" aria-label="Decrease">−</button>
+            <span class="qty">1</span>
+            <button data-action="inc" aria-label="Increase">+</button>
+          </div>
+        </div>
+
+        <button class="add-to-cart" data-add="bone">Add to cart — HK$ 480</button>
+        <div class="shipping-note">Free shipping in HK over HK$500 · Ships within 48 hours</div>
+
+        <div class="accordion">
+          <details id="sizeGuide">
+            <summary>Size guide</summary>
+            <div class="panel">
+              <table style="width:100%;font-size:13px;border-collapse:collapse">
+                <tr><td style="padding:6px 0;color:var(--muted)">XS</td><td>Chest 96cm · Length 64cm · Shoulder 42cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">S</td><td>Chest 100cm · Length 66cm · Shoulder 44cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">M</td><td>Chest 104cm · Length 68cm · Shoulder 46cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">L</td><td>Chest 108cm · Length 70cm · Shoulder 48cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">XL</td><td>Chest 112cm · Length 72cm · Shoulder 50cm</td></tr>
+              </table>
+              <p style="margin-top:12px;font-size:12px;color:var(--muted)">Model is 178cm / 68kg wearing size M.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Shipping & returns</summary>
+            <div class="panel">
+              <p>Free HK shipping over HK$500. International shipping calculated at checkout. 14-day return window for unworn items in original packaging. Final sale on sale items.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Why it costs HK$480</summary>
+            <div class="panel">
+              <p>280gsm long-staple cotton is roughly 2× the weight of a fast-fashion tee. Garment-dye adds a multi-stage wash process. The whole thing is cut and sewn at one Guangzhou factory on a small batch run. We're not building margin — we're paying for the fabric.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL: INK TEE -->
+<section class="detail-section" id="ink">
+  <div class="wrap">
+    <div class="detail-grid reverse">
+      <div class="detail-images">
+        <div class="detail-img">
+          <img src="images/black-tee-model.jpg" alt="The Ink Tee on model, leaning against a weathered concrete pillar" />
+        </div>
+        <div class="detail-img-row">
+          <div class="detail-img square">
+            <img src="images/black-tee-detail.jpg" alt="Black cotton fabric macro with deep folds and texture" />
+          </div>
+          <div class="detail-img square">
+            <img src="images/black-tee-street.jpg" alt="Black tee shot from behind on Hong Kong street with warm diner light" />
+          </div>
+        </div>
+      </div>
+      <div class="detail-info">
+        <h2 class="detail-name">The Ink Tee</h2>
+        <div class="detail-tag">A heavyweight cotton tee, in our deepest garment-dyed black.</div>
+        <div class="detail-price">HK$ 480</div>
+
+        <div class="spec-strip"><span class="spec-label">Fabric</span><span class="spec-value">100% long-staple cotton, 280gsm heavyweight jersey, garment-dyed in deep ink black for matte depth and slight variation between pieces.</span></div>
+        <div class="spec-strip"><span class="spec-label">Fit</span><span class="spec-value">Relaxed through the chest, tapered at the hem. Cut to drape clean over a body at rest.</span></div>
+        <div class="spec-strip"><span class="spec-label">Origin</span><span class="spec-value">Knit + sewn in Guangzhou, China. Cotton sourced from Xinjiang long-staple.</span></div>
+        <div class="spec-strip"><span class="spec-label">Care</span><span class="spec-value">Cold wash inside-out. Hang dry. Iron low. No bleach. No fabric softener.</span></div>
+
+        <div class="size-selector">
+          <div class="row">
+            <span class="label">Size</span>
+            <a href="#" onclick="event.preventDefault();event.target.closest('.size-selector').nextElementSibling.querySelector('details').open=true">Size guide</a>
+          </div>
+          <div class="size-options" data-product="ink">
+            <button class="size-btn" data-size="XS">XS</button>
+            <button class="size-btn" data-size="S">S</button>
+            <button class="size-btn selected" data-size="M">M</button>
+            <button class="size-btn" data-size="L">L</button>
+            <button class="size-btn" data-size="XL">XL</button>
+          </div>
+        </div>
+
+        <div class="qty-row">
+          <span class="spec-label" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500">Quantity</span>
+          <div class="qty-control" data-product="ink">
+            <button data-action="dec" aria-label="Decrease">−</button>
+            <span class="qty">1</span>
+            <button data-action="inc" aria-label="Increase">+</button>
+          </div>
+        </div>
+
+        <button class="add-to-cart" data-add="ink">Add to cart — HK$ 480</button>
+        <div class="shipping-note">Free shipping in HK over HK$500 · Ships within 48 hours</div>
+
+        <div class="accordion">
+          <details>
+            <summary>Size guide</summary>
+            <div class="panel">
+              <table style="width:100%;font-size:13px;border-collapse:collapse">
+                <tr><td style="padding:6px 0;color:var(--muted)">XS</td><td>Chest 96cm · Length 64cm · Shoulder 42cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">S</td><td>Chest 100cm · Length 66cm · Shoulder 44cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">M</td><td>Chest 104cm · Length 68cm · Shoulder 46cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">L</td><td>Chest 108cm · Length 70cm · Shoulder 48cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">XL</td><td>Chest 112cm · Length 72cm · Shoulder 50cm</td></tr>
+              </table>
+              <p style="margin-top:12px;font-size:12px;color:var(--muted)">Model is 178cm / 68kg wearing size M.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Shipping & returns</summary>
+            <div class="panel">
+              <p>Free HK shipping over HK$500. International shipping calculated at checkout. 14-day return window for unworn items in original packaging.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Why black costs the same</summary>
+            <div class="panel">
+              <p>Garment-dyed black is the most forgiving colorway. Slight variation between pieces — every tee has its own depth. We charge the same price because the fabric cost is the same.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FABRIC STORY -->
+<section class="fabric" id="fabric">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">02</span>
+        <span class="eyebrow">The Fabric</span>
+      </div>
+      <div>
+        <h2 class="section-title">280 grams per square meter.<br>Nothing else.</h2>
+      </div>
+    </div>
+
+    <p class="fabric-lede">We make one fabric. We make it heavier than anything else on the market. We garment-dye it so it feels lived-in from day one. Then we cut one tee, in two colors, and we make it well.</p>
+
+    <div class="fabric-stats">
+      <div class="fabric-stat">
+        <div class="val">280<span class="unit">gsm</span></div>
+        <div class="label">Heavyweight jersey</div>
+      </div>
+      <div class="fabric-stat">
+        <div class="val">100<span class="unit">%</span></div>
+        <div class="label">Long-staple cotton</div>
+      </div>
+      <div class="fabric-stat">
+        <div class="val">1<span class="unit">×</span></div>
+        <div class="label">Garment-dyed wash</div>
+      </div>
+      <div class="fabric-stat">
+        <div class="val">2<span class="unit">×</span></div>
+        <div class="label">The weight of fast fashion</div>
+      </div>
+    </div>
+
+    <div class="fabric-images">
+      <div class="detail-img">
+        <img src="images/white-tee-detail.jpg" alt="Hand on bone cotton fabric, macro detail" />
+      </div>
+      <div class="detail-img">
+        <img src="images/black-tee-detail.jpg" alt="Black fabric macro with folds and texture" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story" style="padding:120px 0;border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">03</span>
+        <span class="eyebrow">The Brand</span>
+      </div>
+      <div>
+        <h2 class="section-title">A single layer, considered.</h2>
+        <p class="lede" style="margin-top:32px">Ply is a single-ingredient brand. We make heavyweight cotton tees — nothing else. 280gsm and above, garment-dyed, cut to drape clean over a body that's already at rest. Ply is the layer you reach for when the day is unstructured and the plan is to be present in it.</p>
+        <p style="margin-top:24px;font-size:16px;line-height:1.7;color:#2a2a2a;max-width:680px">We don't make seasonal drops. We make the same tee, in five colors, in the heaviest weight we can source — and we make it well.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE -->
+<section id="lifestyle" class="lifestyle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num">04</span>
+        <span class="eyebrow">In the Field</span>
+      </div>
+      <div>
+        <h2 class="section-title">The tee in the world.</h2>
+      </div>
+    </div>
+
+    <div class="lifestyle-grid">
+      <div class="lifestyle-tile l1"><img src="images/white-tee-model.jpg" alt="Asian male in bone-white heavyweight tee, Hong Kong Mid-Levels balcony with harbor view" /></div>
+      <div class="lifestyle-tile l2"><img src="images/black-tee-model.jpg" alt="Asian male in ink-black heavyweight tee, leaning against weathered concrete pillar" /></div>
+      <div class="lifestyle-tile l3"><img src="images/black-tee-street.jpg" alt="Asian male in ink-black tee shot from behind on Hong Kong street with warm diner light" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-col foot-mark">
+        <div class="word">Ply<span class="period">.</span></div>
+        <div class="tag">A premium heavyweight cotton tee label. Made for the layer.</div>
+      </div>
+      <div class="foot-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#bone">The Bone Tee</a></li>
+          <li><a href="#ink">The Ink Tee</a></li>
+          <li><a href="#shop">All Tees</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Brand</h4>
+        <ul>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#fabric">The Fabric</a></li>
+          <li><a href="#lifestyle">Field Notes</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Care</a></li>
+          <li><a href="mailto:hello@plylabel.io">hello@plylabel.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Ply · plylabel.io · All rights reserved</div>
+      <div class="links">
+        <a href="#">Instagram</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="drawer-bg" id="drawerBg"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3>Your cart</h3>
+    <button class="drawer-close" id="closeCart" aria-label="Close cart">×</button>
+  </div>
+  <div class="drawer-body" id="drawerBody">
+    <div class="drawer-empty">Your cart is empty.</div>
+  </div>
+  <div class="drawer-foot" id="drawerFoot" style="display:none">
+    <div class="drawer-totals"><span>Subtotal</span><span id="cartSubtotal">HK$ 0</span></div>
+    <div class="drawer-totals"><span>Shipping</span><span id="cartShipping">Free</span></div>
+    <div class="drawer-total"><span>Total</span><span id="cartTotal">HK$ 0</span></div>
+    <a href="#" class="btn-primary" style="background:var(--terracotta);color:var(--cream)">Checkout <span class="arrow">→</span></a>
+    <a href="#" class="btn-secondary" id="clearCart">Clear cart</a>
+  </div>
+</aside>
+
+<div class="toast" id="toast">Added to cart</div>
+
+<script>
+/* ===== Ply cart (localStorage, no backend) ===== */
+const PRODUCTS = {
+  bone: {
+    name: 'The Bone Tee',
+    sub: '280gsm · bone-white',
+    price: 480,
+    img: 'images/white-tee-model.jpg'
+  },
+  ink: {
+    name: 'The Ink Tee',
+    sub: '280gsm · ink-black',
+    price: 480,
+    img: 'images/black-tee-model.jpg'
+  }
+};
+
+const STORAGE_KEY = 'ply-cart-v1';
+
+function readCart() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+  catch (e) { return []; }
+}
+function writeCart(cart) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+  renderCart();
+}
+
+function addToCart(slug) {
+  const size = selectedSize(slug);
+  const qty = parseInt(document.querySelector('.qty-control[data-product="' + slug + '"] .qty').textContent, 10) || 1;
+  const cart = readCart();
+  const key = slug + ':' + size;
+  const existing = cart.find(it => it.key === key);
+  if (existing) { existing.qty += qty; }
+  else { cart.push({ key, slug, size, qty }); }
+  writeCart(cart);
+  showToast('Added to cart');
+}
+
+function removeFromCart(key) {
+  writeCart(readCart().filter(it => it.key !== key));
+}
+function changeQty(key, delta) {
+  const cart = readCart();
+  const it = cart.find(i => i.key === key);
+  if (!it) return;
+  it.qty = Math.max(1, it.qty + delta);
+  writeCart(cart);
+}
+function clearCart() { writeCart([]); }
+
+function selectedSize(slug) {
+  const sel = document.querySelector('.size-options[data-product="' + slug + '"] .size-btn.selected');
+  return sel ? sel.dataset.size : 'M';
+}
+
+function renderCart() {
+  const cart = readCart();
+  const body = document.getElementById('drawerBody');
+  const foot = document.getElementById('drawerFoot');
+  const count = document.getElementById('cartCount');
+
+  const totalQty = cart.reduce((s, it) => s + it.qty, 0);
+  count.textContent = totalQty;
+  count.setAttribute('data-count', totalQty);
+
+  if (cart.length === 0) {
+    body.innerHTML = '<div class="drawer-empty">Your cart is empty.</div>';
+    foot.style.display = 'none';
+    return;
+  }
+
+  body.innerHTML = cart.map(it => {
+    const p = PRODUCTS[it.slug];
+    const line = p.price * it.qty;
+    return '<div class="cart-item" data-key="' + it.key + '">' +
+      '<div class="cart-item-img"><img src="' + p.img + '" alt="' + p.name + '"></div>' +
+      '<div><div class="cart-item-name">' + p.name + '</div>' +
+        '<div class="cart-item-meta">' + p.sub + ' · Size ' + it.size + '</div>' +
+        '<div class="cart-item-qty"><button data-cart-act="dec">−</button><span>' + it.qty + '</span><button data-cart-act="inc">+</button></div>' +
+        '<button class="cart-item-remove" data-cart-remove="' + it.key + '">Remove</button></div>' +
+      '<div class="cart-item-price">HK$ ' + line.toLocaleString() + '</div>' +
+    '</div>';
+  }).join('');
+
+  const subtotal = cart.reduce((s, it) => s + PRODUCTS[it.slug].price * it.qty, 0);
+  const shipping = subtotal >= 500 ? 0 : 30;
+  document.getElementById('cartSubtotal').textContent = 'HK$ ' + subtotal.toLocaleString();
+  document.getElementById('cartShipping').textContent = shipping === 0 ? 'Free' : 'HK$ ' + shipping;
+  document.getElementById('cartTotal').textContent = 'HK$ ' + (subtotal + shipping).toLocaleString();
+  foot.style.display = 'block';
+}
+
+/* ===== Drawer ===== */
+const drawer = document.getElementById('cartDrawer');
+const drawerBg = document.getElementById('drawerBg');
+function openCart() { drawer.classList.add('open'); drawerBg.classList.add('open'); }
+function closeCart() { drawer.classList.remove('open'); drawerBg.classList.remove('open'); }
+document.getElementById('openCart').addEventListener('click', openCart);
+document.getElementById('closeCart').addEventListener('click', closeCart);
+drawerBg.addEventListener('click', closeCart);
+
+/* ===== Size buttons ===== */
+document.querySelectorAll('.size-options').forEach(group => {
+  group.addEventListener('click', e => {
+    const btn = e.target.closest('.size-btn');
+    if (!btn || btn.dataset.stock === 'out') return;
+    group.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+  });
+});
+
+/* ===== Qty controls ===== */
+document.querySelectorAll('.qty-control').forEach(ctrl => {
+  ctrl.addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    const span = ctrl.querySelector('.qty');
+    let n = parseInt(span.textContent, 10) || 1;
+    if (btn.dataset.action === 'inc') n++;
+    if (btn.dataset.action === 'dec') n = Math.max(1, n - 1);
+    span.textContent = n;
+  });
+});
+
+/* ===== Add to cart ===== */
+document.querySelectorAll('[data-add]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const slug = btn.dataset.add;
+    addToCart(slug);
+    btn.classList.add('added');
+    btn.textContent = '✓ Added — view in cart';
+    setTimeout(() => {
+      btn.classList.remove('added');
+      const p = PRODUCTS[slug];
+      btn.textContent = 'Add to cart — HK$ ' + p.price;
+    }, 2200);
+  });
+});
+
+/* ===== Cart line controls ===== */
+document.getElementById('drawerBody').addEventListener('click', e => {
+  const item = e.target.closest('.cart-item');
+  if (!item) return;
+  const key = item.dataset.key;
+  if (e.target.matches('[data-cart-remove]')) removeFromCart(key);
+  if (e.target.dataset.cartAct === 'inc') changeQty(key, +1);
+  if (e.target.dataset.cartAct === 'dec') changeQty(key, -1);
+});
+
+document.getElementById('clearCart').addEventListener('click', e => { e.preventDefault(); clearCart(); });
+
+/* ===== Toast ===== */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+/* ===== Init ===== */
+renderCart();
+</script>
+
+</body>
+</html>
