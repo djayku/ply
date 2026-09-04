@@ -8,7 +8,7 @@
 <meta name="description" content="Ply. A premium heavyweight cotton tee label. 280gsm, garment-dyed, cut to drape clean. Made for the layer." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ===== Brand tokens (from ply-brand-book v1) ===== */
   :root{
@@ -47,6 +47,45 @@
   .cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;font-weight:500}
   .cart-count{position:absolute;top:-8px;right:-12px;background:var(--terracotta);color:var(--cream);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;letter-spacing:0}
   .cart-count:empty,.cart-count[data-count="0"]{display:none}
+
+  /* ===== Lang toggle ===== */
+  .lang-toggle{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .lang-toggle button{padding:6px 10px;border-radius:999px;transition:background .15s ease,color .15s ease;font-family:inherit;font-size:11px;letter-spacing:0.18em;text-transform:uppercase}
+  .lang-toggle button.active{background:var(--ink);color:var(--bone)}
+  .lang-toggle button:not(.active):hover{color:var(--ink)}
+  .lang-toggle .sep{color:var(--rule)}
+
+  /* ===== zh-HK font swap (Noto TC) ===== */
+  html[lang="zh-HK"] body{font-family:'Noto Sans TC','Inter',sans-serif;line-height:1.75}
+  html[lang="zh-HK"] .display,
+  html[lang="zh-HK"] .logo,
+  html[lang="zh-HK"] .hero-copy h1,
+  html[lang="zh-HK"] h2.section-title,
+  html[lang="zh-HK"] .detail-name,
+  html[lang="zh-HK"] .word{font-family:'Noto Sans TC','Outfit',sans-serif;font-weight:800;letter-spacing:-0.01em}
+  html[lang="zh-HK"] .serif,
+  html[lang-HK] .lede,
+  html[lang="zh-HK"] .lede,
+  html[lang="zh-HK"] .hero-tag,
+  html[lang="zh-HK"] .detail-tag,
+  html[lang="zh-HK"] .fabric-lede{font-family:'Noto Serif TC','Fraunces',serif;font-weight:400;font-style:normal}
+  html[lang="zh-HK"] .eyebrow,
+  html[lang="zh-HK"] .hero-meta,
+  html[lang="zh-HK"] .sec-num,
+  html[lang="zh-HK"] .spec-label,
+  html[lang="zh-HK"] .cart-btn,
+  html[lang="zh-HK"] .btn-primary,
+  html[lang="zh-HK"] .btn-secondary,
+  html[lang="zh-HK"] .lang-toggle,
+  html[lang="zh-HK"] .add-to-cart,
+  html[lang="zh-HK"] .nav{letter-spacing:0.06em}
+  html[lang="zh-HK"] .product-sub,
+  html[lang="zh-HK"] .product-meta,
+  html[lang="zh-HK"] .spec-strip,
+  html[lang="zh-HK"] .cart-item-meta,
+  html[lang="zh-HK"] .shipping-note,
+  html[lang="zh-HK"] .tag,
+  html[lang="zh-HK"] .lede{letter-spacing:0.02em}
 
   /* ===== Hero ===== */
   .hero{padding:0 0 56px;position:relative;overflow:hidden}
@@ -234,15 +273,20 @@
   <div class="topbar-inner">
     <a href="#top" class="logo">Ply<span class="period">.</span></a>
     <nav class="nav">
-      <a href="#shop" class="active hide-mobile">Shop</a>
-      <a href="#story" class="hide-mobile">Story</a>
-      <a href="#fabric" class="hide-mobile">Fabric</a>
-      <a href="#lifestyle" class="hide-mobile">Field</a>
+      <a href="#shop" class="active hide-mobile" data-i18n="nav.shop">Shop</a>
+      <a href="#story" class="hide-mobile" data-i18n="nav.story">Story</a>
+      <a href="#fabric" class="hide-mobile" data-i18n="nav.fabric">Fabric</a>
+      <a href="#lifestyle" class="hide-mobile" data-i18n="nav.field">Field</a>
       <button class="cart-btn" id="openCart" aria-label="Open cart">
-        Cart
+        <span data-i18n="nav.cart">Cart</span>
         <span class="cart-count" id="cartCount" data-count="0"></span>
       </button>
     </nav>
+    <div class="lang-toggle hide-mobile" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+      <span class="sep">·</span>
+      <button type="button" data-lang="zh-HK" aria-pressed="false">中文</button>
+    </div>
   </div>
 </header>
 
@@ -251,15 +295,15 @@
   <div class="hero-image">
     <img src="images/hero-maldives.jpg" alt="Asian male model in bone-white Ply heavyweight tee, standing barefoot at the edge of a turquoise infinity pool in a Maldives-style setting" />
     <div class="gradient"></div>
-    <div class="cap">Plate 01 · The Bone Tee · The Maldives</div>
+    <div class="cap" data-i18n="hero.cap">Plate 01 · The Bone Tee · The Maldives</div>
   </div>
   <div class="wrap">
     <div class="hero-copy">
       <h1>Ply<span class="period">.</span></h1>
-      <p class="hero-tag">A premium heavyweight cotton tee label, built on weight, restraint, and a single fabric story.</p>
+      <p class="hero-tag" data-i18n="hero.tag">A premium heavyweight cotton tee label, built on weight, restraint, and a single fabric story.</p>
       <div class="hero-cta">
-        <a href="#shop" class="btn-primary">Shop the tee <span class="arrow">→</span></a>
-        <span class="hero-meta">280gsm · Garment-dyed · Made for the layer</span>
+        <a href="#shop" class="btn-primary"><span data-i18n="hero.cta">Shop the tee</span> <span class="arrow">→</span></a>
+        <span class="hero-meta" data-i18n="hero.meta">280gsm · Garment-dyed · Made for the layer</span>
       </div>
     </div>
   </div>
@@ -271,10 +315,10 @@
     <div class="sec-head">
       <div>
         <span class="sec-num">01</span>
-        <span class="eyebrow">The Collection</span>
+        <span class="eyebrow" data-i18n="shop.eyebrow">The Collection</span>
       </div>
       <div>
-        <h2 class="section-title">Two tees.<br>The same fabric.</h2>
+        <h2 class="section-title" data-i18n="shop.title">Two tees.<br>The same fabric.</h2>
       </div>
     </div>
 
@@ -283,26 +327,26 @@
         <div class="product-image">
           <img src="images/white-tee-model.jpg" alt="The Bone Tee — bone-white Ply heavyweight cotton t-shirt on model" />
           <span class="product-tag">01</span>
-          <div class="product-quick">View details</div>
+          <div class="product-quick" data-i18n="shop.viewDetails">View details</div>
         </div>
         <div class="product-meta">
-          <div class="product-name">The Bone Tee</div>
-          <div class="product-price">HK$ 200</div>
+          <div class="product-name" data-i18n="product.bone.name">The Bone Tee</div>
+          <div class="product-price">HK$ <span data-i18n="product.price">200</span></div>
         </div>
-        <div class="product-sub">280gsm · bone-white garment-dyed cotton</div>
+        <div class="product-sub" data-i18n="product.bone.sub">280gsm · bone-white garment-dyed cotton</div>
       </a>
 
       <a href="#ink" class="product-card">
         <div class="product-image">
           <img src="images/black-tee-model.jpg" alt="The Ink Tee — deep black Ply heavyweight cotton t-shirt on model" />
           <span class="product-tag">02</span>
-          <div class="product-quick">View details</div>
+          <div class="product-quick" data-i18n="shop.viewDetails">View details</div>
         </div>
         <div class="product-meta">
-          <div class="product-name">The Ink Tee</div>
-          <div class="product-price">HK$ 200</div>
+          <div class="product-name" data-i18n="product.ink.name">The Ink Tee</div>
+          <div class="product-price">HK$ <span data-i18n="product.price">200</span></div>
         </div>
-        <div class="product-sub">280gsm · ink-black garment-dyed cotton</div>
+        <div class="product-sub" data-i18n="product.ink.sub">280gsm · ink-black garment-dyed cotton</div>
       </a>
     </div>
   </div>
@@ -326,19 +370,19 @@
         </div>
       </div>
       <div class="detail-info">
-        <h2 class="detail-name">The Bone Tee</h2>
-        <div class="detail-tag">A heavyweight cotton tee, in unbleached cotton tone.</div>
-        <div class="detail-price">HK$ 200</div>
+        <h2 class="detail-name" data-i18n="product.bone.name">The Bone Tee</h2>
+        <div class="detail-tag" data-i18n="product.bone.tag">A heavyweight cotton tee, in unbleached cotton tone.</div>
+        <div class="detail-price">HK$ <span data-i18n="product.price">200</span></div>
 
-        <div class="spec-strip"><span class="spec-label">Fabric</span><span class="spec-value">100% long-staple cotton, 280gsm heavyweight jersey, garment-dyed for soft hand-feel and lived-in color depth.</span></div>
-        <div class="spec-strip"><span class="spec-label">Fit</span><span class="spec-value">Relaxed through the chest, tapered at the hem. Cut to drape clean over a body at rest.</span></div>
-        <div class="spec-strip"><span class="spec-label">Origin</span><span class="spec-value">Knit + sewn in Guangzhou, China. Cotton sourced from Xinjiang long-staple.</span></div>
-        <div class="spec-strip"><span class="spec-label">Care</span><span class="spec-value">Cold wash inside-out. Hang dry. Iron low. No bleach. No fabric softener.</span></div>
+        <div class="spec-strip"><span class="spec-label" data-i18n="spec.fabric">Fabric</span><span class="spec-value" data-i18n="product.bone.fabric">100% long-staple cotton, 280gsm heavyweight jersey, garment-dyed for soft hand-feel and lived-in color depth.</span></div>
+        <div class="spec-strip"><span class="spec-label" data-i18n="spec.fit">Fit</span><span class="spec-value" data-i18n="spec.fitValue">Relaxed through the chest, tapered at the hem. Cut to drape clean over a body at rest.</span></div>
+        <div class="spec-strip"><span class="spec-label" data-i18n="spec.origin">Origin</span><span class="spec-value" data-i18n="spec.originValue">Knit + sewn in Guangzhou, China. Cotton sourced from Xinjiang long-staple.</span></div>
+        <div class="spec-strip"><span class="spec-label" data-i18n="spec.care">Care</span><span class="spec-value" data-i18n="spec.careValue">Cold wash inside-out. Hang dry. Iron low. No bleach. No fabric softener.</span></div>
 
         <div class="size-selector">
           <div class="row">
-            <span class="label">Size</span>
-            <a href="#" onclick="event.preventDefault();document.getElementById('sizeGuide').open=true">Size guide</a>
+            <span class="label" data-i18n="detail.size">Size</span>
+            <a href="#" onclick="event.preventDefault();document.getElementById('sizeGuide').open=true" data-i18n="detail.sizeGuide">Size guide</a>
           </div>
           <div class="size-options" data-product="bone">
             <button class="size-btn" data-size="XS">XS</button>
@@ -350,7 +394,7 @@
         </div>
 
         <div class="qty-row">
-          <span class="spec-label" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500">Quantity</span>
+          <span class="spec-label" data-i18n="detail.quantity" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500">Quantity</span>
           <div class="qty-control" data-product="bone">
             <button data-action="dec" aria-label="Decrease">−</button>
             <span class="qty">1</span>
@@ -358,33 +402,33 @@
           </div>
         </div>
 
-        <button class="add-to-cart" data-add="bone">Add to cart — HK$ 200</button>
-        <div class="shipping-note">Free shipping in HK over HK$400 · Ships within 48 hours</div>
+        <button class="add-to-cart" data-add="bone" data-i18n-template="cart.addToCart">Add to cart — HK$ 200</button>
+        <div class="shipping-note" data-i18n="detail.shippingNote">Free shipping in HK over HK$400 · Ships within 48 hours</div>
 
         <div class="accordion">
           <details id="sizeGuide">
-            <summary>Size guide</summary>
+            <summary data-i18n="detail.sizeGuide">Size guide</summary>
             <div class="panel">
               <table style="width:100%;font-size:13px;border-collapse:collapse">
-                <tr><td style="padding:6px 0;color:var(--muted)">XS</td><td>Chest 96cm · Length 64cm · Shoulder 42cm</td></tr>
-                <tr><td style="padding:6px 0;color:var(--muted)">S</td><td>Chest 100cm · Length 66cm · Shoulder 44cm</td></tr>
-                <tr><td style="padding:6px 0;color:var(--muted)">M</td><td>Chest 104cm · Length 68cm · Shoulder 46cm</td></tr>
-                <tr><td style="padding:6px 0;color:var(--muted)">L</td><td>Chest 108cm · Length 70cm · Shoulder 48cm</td></tr>
-                <tr><td style="padding:6px 0;color:var(--muted)">XL</td><td>Chest 112cm · Length 72cm · Shoulder 50cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">XS</td><td data-i18n="size.xs">Chest 96cm · Length 64cm · Shoulder 42cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">S</td><td data-i18n="size.s">Chest 100cm · Length 66cm · Shoulder 44cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">M</td><td data-i18n="size.m">Chest 104cm · Length 68cm · Shoulder 46cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">L</td><td data-i18n="size.l">Chest 108cm · Length 70cm · Shoulder 48cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">XL</td><td data-i18n="size.xl">Chest 112cm · Length 72cm · Shoulder 50cm</td></tr>
               </table>
-              <p style="margin-top:12px;font-size:12px;color:var(--muted)">Model is 178cm / 68kg wearing size M.</p>
+              <p style="margin-top:12px;font-size:12px;color:var(--muted)" data-i18n="detail.modelInfo">Model is 178cm / 68kg wearing size M.</p>
             </div>
           </details>
           <details>
-            <summary>Shipping & returns</summary>
+            <summary data-i18n="detail.shipping">Shipping & returns</summary>
             <div class="panel">
-              <p>Free HK shipping over HK$400. International shipping calculated at checkout. 14-day return window for unworn items in original packaging. Final sale on sale items.</p>
+              <p data-i18n="detail.shippingBody">Free HK shipping over HK$400. International shipping calculated at checkout. 14-day return window for unworn items in original packaging. Final sale on sale items.</p>
             </div>
           </details>
           <details>
-            <summary>Why it costs HK$200</summary>
+            <summary data-i18n="detail.whyCost">Why it costs HK$200</summary>
             <div class="panel">
-              <p>280gsm long-staple cotton is roughly 2× the weight of a fast-fashion tee. Garment-dye adds a multi-stage wash process. The whole thing is cut and sewn at one Guangzhou factory on a small batch run. We're not building margin — we're paying for the fabric.</p>
+              <p data-i18n="detail.whyCostBody">280gsm long-staple cotton is roughly 2× the weight of a fast-fashion tee. Garment-dye adds a multi-stage wash process. The whole thing is cut and sewn at one Guangzhou factory on a small batch run. We're not building margin — we're paying for the fabric.</p>
             </div>
           </details>
         </div>
@@ -411,19 +455,19 @@
         </div>
       </div>
       <div class="detail-info">
-        <h2 class="detail-name">The Ink Tee</h2>
-        <div class="detail-tag">A heavyweight cotton tee, in our deepest garment-dyed black.</div>
-        <div class="detail-price">HK$ 200</div>
+        <h2 class="detail-name" data-i18n="product.ink.name">The Ink Tee</h2>
+        <div class="detail-tag" data-i18n="product.ink.tag">A heavyweight cotton tee, in our deepest garment-dyed black.</div>
+        <div class="detail-price">HK$ <span data-i18n="product.price">200</span></div>
 
-        <div class="spec-strip"><span class="spec-label">Fabric</span><span class="spec-value">100% long-staple cotton, 280gsm heavyweight jersey, garment-dyed in deep ink black for matte depth and slight variation between pieces.</span></div>
-        <div class="spec-strip"><span class="spec-label">Fit</span><span class="spec-value">Relaxed through the chest, tapered at the hem. Cut to drape clean over a body at rest.</span></div>
-        <div class="spec-strip"><span class="spec-label">Origin</span><span class="spec-value">Knit + sewn in Guangzhou, China. Cotton sourced from Xinjiang long-staple.</span></div>
-        <div class="spec-strip"><span class="spec-label">Care</span><span class="spec-value">Cold wash inside-out. Hang dry. Iron low. No bleach. No fabric softener.</span></div>
+        <div class="spec-strip"><span class="spec-label" data-i18n="spec.fabric">Fabric</span><span class="spec-value" data-i18n="product.ink.fabric">100% long-staple cotton, 280gsm heavyweight jersey, garment-dyed in deep ink black for matte depth and slight variation between pieces.</span></div>
+        <div class="spec-strip"><span class="spec-label" data-i18n="spec.fit">Fit</span><span class="spec-value" data-i18n="spec.fitValue">Relaxed through the chest, tapered at the hem. Cut to drape clean over a body at rest.</span></div>
+        <div class="spec-strip"><span class="spec-label" data-i18n="spec.origin">Origin</span><span class="spec-value" data-i18n="spec.originValue">Knit + sewn in Guangzhou, China. Cotton sourced from Xinjiang long-staple.</span></div>
+        <div class="spec-strip"><span class="spec-label" data-i18n="spec.care">Care</span><span class="spec-value" data-i18n="spec.careValue">Cold wash inside-out. Hang dry. Iron low. No bleach. No fabric softener.</span></div>
 
         <div class="size-selector">
           <div class="row">
-            <span class="label">Size</span>
-            <a href="#" onclick="event.preventDefault();event.target.closest('.size-selector').nextElementSibling.querySelector('details').open=true">Size guide</a>
+            <span class="label" data-i18n="detail.size">Size</span>
+            <a href="#" onclick="event.preventDefault();event.target.closest('.size-selector').nextElementSibling.querySelector('details').open=true" data-i18n="detail.sizeGuide">Size guide</a>
           </div>
           <div class="size-options" data-product="ink">
             <button class="size-btn" data-size="XS">XS</button>
@@ -435,7 +479,7 @@
         </div>
 
         <div class="qty-row">
-          <span class="spec-label" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500">Quantity</span>
+          <span class="spec-label" data-i18n="detail.quantity" style="font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);font-weight:500">Quantity</span>
           <div class="qty-control" data-product="ink">
             <button data-action="dec" aria-label="Decrease">−</button>
             <span class="qty">1</span>
@@ -443,33 +487,33 @@
           </div>
         </div>
 
-        <button class="add-to-cart" data-add="ink">Add to cart — HK$ 200</button>
-        <div class="shipping-note">Free shipping in HK over HK$400 · Ships within 48 hours</div>
+        <button class="add-to-cart" data-add="ink" data-i18n-template="cart.addToCart">Add to cart — HK$ 200</button>
+        <div class="shipping-note" data-i18n="detail.shippingNote">Free shipping in HK over HK$400 · Ships within 48 hours</div>
 
         <div class="accordion">
           <details>
-            <summary>Size guide</summary>
+            <summary data-i18n="detail.sizeGuide">Size guide</summary>
             <div class="panel">
               <table style="width:100%;font-size:13px;border-collapse:collapse">
-                <tr><td style="padding:6px 0;color:var(--muted)">XS</td><td>Chest 96cm · Length 64cm · Shoulder 42cm</td></tr>
-                <tr><td style="padding:6px 0;color:var(--muted)">S</td><td>Chest 100cm · Length 66cm · Shoulder 44cm</td></tr>
-                <tr><td style="padding:6px 0;color:var(--muted)">M</td><td>Chest 104cm · Length 68cm · Shoulder 46cm</td></tr>
-                <tr><td style="padding:6px 0;color:var(--muted)">L</td><td>Chest 108cm · Length 70cm · Shoulder 48cm</td></tr>
-                <tr><td style="padding:6px 0;color:var(--muted)">XL</td><td>Chest 112cm · Length 72cm · Shoulder 50cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">XS</td><td data-i18n="size.xs">Chest 96cm · Length 64cm · Shoulder 42cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">S</td><td data-i18n="size.s">Chest 100cm · Length 66cm · Shoulder 44cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">M</td><td data-i18n="size.m">Chest 104cm · Length 68cm · Shoulder 46cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">L</td><td data-i18n="size.l">Chest 108cm · Length 70cm · Shoulder 48cm</td></tr>
+                <tr><td style="padding:6px 0;color:var(--muted)">XL</td><td data-i18n="size.xl">Chest 112cm · Length 72cm · Shoulder 50cm</td></tr>
               </table>
-              <p style="margin-top:12px;font-size:12px;color:var(--muted)">Model is 178cm / 68kg wearing size M.</p>
+              <p style="margin-top:12px;font-size:12px;color:var(--muted)" data-i18n="detail.modelInfo">Model is 178cm / 68kg wearing size M.</p>
             </div>
           </details>
           <details>
-            <summary>Shipping & returns</summary>
+            <summary data-i18n="detail.shipping">Shipping & returns</summary>
             <div class="panel">
-              <p>Free HK shipping over HK$400. International shipping calculated at checkout. 14-day return window for unworn items in original packaging.</p>
+              <p data-i18n="detail.shippingBody">Free HK shipping over HK$400. International shipping calculated at checkout. 14-day return window for unworn items in original packaging.</p>
             </div>
           </details>
           <details>
-            <summary>Why black costs the same</summary>
+            <summary data-i18n="detail.whyBlack">Why black costs the same</summary>
             <div class="panel">
-              <p>Garment-dyed black is the most forgiving colorway. Slight variation between pieces — every tee has its own depth. We charge the same price because the fabric cost is the same.</p>
+              <p data-i18n="detail.whyBlackBody">Garment-dyed black is the most forgiving colorway. Slight variation between pieces — every tee has its own depth. We charge the same price because the fabric cost is the same.</p>
             </div>
           </details>
         </div>
@@ -484,31 +528,31 @@
     <div class="sec-head">
       <div>
         <span class="sec-num">02</span>
-        <span class="eyebrow">The Fabric</span>
+        <span class="eyebrow" data-i18n="fabric.eyebrow">The Fabric</span>
       </div>
       <div>
-        <h2 class="section-title">280 grams per square meter.<br>Nothing else.</h2>
+        <h2 class="section-title" data-i18n="fabric.title">280 grams per square meter.<br>Nothing else.</h2>
       </div>
     </div>
 
-    <p class="fabric-lede">We make one fabric. We make it heavier than anything else on the market. We garment-dye it so it feels lived-in from day one. Then we cut one tee, in two colors, and we make it well.</p>
+    <p class="fabric-lede" data-i18n="fabric.lede">We make one fabric. We make it heavier than anything else on the market. We garment-dye it so it feels lived-in from day one. Then we cut one tee, in two colors, and we make it well.</p>
 
     <div class="fabric-stats">
       <div class="fabric-stat">
         <div class="val">280<span class="unit">gsm</span></div>
-        <div class="label">Heavyweight jersey</div>
+        <div class="label" data-i18n="fabric.stat1">Heavyweight jersey</div>
       </div>
       <div class="fabric-stat">
         <div class="val">100<span class="unit">%</span></div>
-        <div class="label">Long-staple cotton</div>
+        <div class="label" data-i18n="fabric.stat2">Long-staple cotton</div>
       </div>
       <div class="fabric-stat">
         <div class="val">1<span class="unit">×</span></div>
-        <div class="label">Garment-dyed wash</div>
+        <div class="label" data-i18n="fabric.stat3">Garment-dyed wash</div>
       </div>
       <div class="fabric-stat">
         <div class="val">2<span class="unit">×</span></div>
-        <div class="label">The weight of fast fashion</div>
+        <div class="label" data-i18n="fabric.stat4">The weight of fast fashion</div>
       </div>
     </div>
 
@@ -529,12 +573,12 @@
     <div class="sec-head">
       <div>
         <span class="sec-num">03</span>
-        <span class="eyebrow">The Brand</span>
+        <span class="eyebrow" data-i18n="brand.eyebrow">The Brand</span>
       </div>
       <div>
-        <h2 class="section-title">A single layer, considered.</h2>
-        <p class="lede" style="margin-top:32px">Ply is a single-ingredient brand. We make heavyweight cotton tees — nothing else. 280gsm and above, garment-dyed, cut to drape clean over a body that's already at rest. Ply is the layer you reach for when the day is unstructured and the plan is to be present in it.</p>
-        <p style="margin-top:24px;font-size:16px;line-height:1.7;color:#2a2a2a;max-width:680px">We don't make seasonal drops. We make the same tee, in five colors, in the heaviest weight we can source — and we make it well.</p>
+        <h2 class="section-title" data-i18n="brand.title">A single layer, considered.</h2>
+        <p class="lede" style="margin-top:32px" data-i18n="brand.lede">Ply is a single-ingredient brand. We make heavyweight cotton tees — nothing else. 280gsm and above, garment-dyed, cut to drape clean over a body that's already at rest. Ply is the layer you reach for when the day is unstructured and the plan is to be present in it.</p>
+        <p style="margin-top:24px;font-size:16px;line-height:1.7;color:#2a2a2a;max-width:680px" data-i18n="brand.body">We don't make seasonal drops. We make the same tee, in five colors, in the heaviest weight we can source — and we make it well.</p>
       </div>
     </div>
   </div>
@@ -546,10 +590,10 @@
     <div class="sec-head">
       <div>
         <span class="sec-num">04</span>
-        <span class="eyebrow">In the Field</span>
+        <span class="eyebrow" data-i18n="lifestyle.eyebrow">In the Field</span>
       </div>
       <div>
-        <h2 class="section-title">The tee in the world.</h2>
+        <h2 class="section-title" data-i18n="lifestyle.title">The tee in the world.</h2>
       </div>
     </div>
 
@@ -567,41 +611,41 @@
     <div class="foot">
       <div class="foot-col foot-mark">
         <div class="word">Ply<span class="period">.</span></div>
-        <div class="tag">A premium heavyweight cotton tee label. Made for the layer.</div>
+        <div class="tag" data-i18n="footer.tag">A premium heavyweight cotton tee label. Made for the layer.</div>
       </div>
       <div class="foot-col">
-        <h4>Shop</h4>
+        <h4 data-i18n="footer.shop">Shop</h4>
         <ul>
-          <li><a href="#bone">The Bone Tee</a></li>
-          <li><a href="#ink">The Ink Tee</a></li>
-          <li><a href="#shop">All Tees</a></li>
+          <li><a href="#bone" data-i18n="product.bone.name">The Bone Tee</a></li>
+          <li><a href="#ink" data-i18n="product.ink.name">The Ink Tee</a></li>
+          <li><a href="#shop" data-i18n="footer.allTees">All Tees</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Brand</h4>
+        <h4 data-i18n="footer.brand">Brand</h4>
         <ul>
-          <li><a href="#story">Our Story</a></li>
-          <li><a href="#fabric">The Fabric</a></li>
-          <li><a href="#lifestyle">Field Notes</a></li>
+          <li><a href="#story" data-i18n="footer.story">Our Story</a></li>
+          <li><a href="#fabric" data-i18n="footer.fabric">The Fabric</a></li>
+          <li><a href="#lifestyle" data-i18n="footer.field">Field Notes</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h4>Support</h4>
+        <h4 data-i18n="footer.support">Support</h4>
         <ul>
-          <li><a href="#">Size Guide</a></li>
-          <li><a href="#">Shipping</a></li>
-          <li><a href="#">Returns</a></li>
-          <li><a href="#">Care</a></li>
+          <li><a href="#" data-i18n="footer.sizeGuide">Size Guide</a></li>
+          <li><a href="#" data-i18n="footer.shipping">Shipping</a></li>
+          <li><a href="#" data-i18n="footer.returns">Returns</a></li>
+          <li><a href="#" data-i18n="footer.care">Care</a></li>
           <li><a href="mailto:hello@plylabel.io">hello@plylabel.io</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <div>© 2026 Ply · plylabel.io · All rights reserved</div>
+      <div data-i18n="footer.copy">© 2026 Ply · plylabel.io · All rights reserved</div>
       <div class="links">
-        <a href="#">Instagram</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
+        <a href="#" data-i18n="footer.instagram">Instagram</a>
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.terms">Terms</a>
       </div>
     </div>
   </div>
@@ -611,37 +655,242 @@
 <div class="drawer-bg" id="drawerBg"></div>
 <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
   <div class="drawer-head">
-    <h3>Your cart</h3>
+    <h3 data-i18n="cart.title">Your cart</h3>
     <button class="drawer-close" id="closeCart" aria-label="Close cart">×</button>
   </div>
   <div class="drawer-body" id="drawerBody">
-    <div class="drawer-empty">Your cart is empty.</div>
+    <div class="drawer-empty" data-i18n="cart.empty">Your cart is empty.</div>
   </div>
   <div class="drawer-foot" id="drawerFoot" style="display:none">
-    <div class="drawer-totals"><span>Subtotal</span><span id="cartSubtotal">HK$ 0</span></div>
-    <div class="drawer-totals"><span>Shipping</span><span id="cartShipping">Free</span></div>
-    <div class="drawer-total"><span>Total</span><span id="cartTotal">HK$ 0</span></div>
-    <a href="#" class="btn-primary" style="background:var(--terracotta);color:var(--cream)">Checkout <span class="arrow">→</span></a>
-    <a href="#" class="btn-secondary" id="clearCart">Clear cart</a>
+    <div class="drawer-totals"><span data-i18n="cart.subtotal">Subtotal</span><span id="cartSubtotal">HK$ 0</span></div>
+    <div class="drawer-totals"><span data-i18n="cart.shipping">Shipping</span><span id="cartShipping">Free</span></div>
+    <div class="drawer-total"><span data-i18n="cart.total">Total</span><span id="cartTotal">HK$ 0</span></div>
+    <a href="#" class="btn-primary" style="background:var(--terracotta);color:var(--cream)"><span data-i18n="cart.checkout">Checkout</span> <span class="arrow">→</span></a>
+    <a href="#" class="btn-secondary" id="clearCart" data-i18n="cart.clear">Clear cart</a>
   </div>
 </aside>
 
-<div class="toast" id="toast">Added to cart</div>
+<div class="toast" id="toast" data-i18n="cart.toast">Added to cart</div>
 
 <script>
+/* ===== Tiny i18n helper (full dictionary lives in the i18n script block below) ===== */
+let currentLang = (function(){ try { return localStorage.getItem('ply-lang-v1') || 'en'; } catch(e){ return 'en'; } })();
+function t(key){ return (window.I18N && window.I18N[currentLang] && window.I18N[currentLang][key]) || (window.I18N && window.I18N.en[key]) || key; }
+
 /* ===== Ply cart (localStorage, no backend) ===== */
 const PRODUCTS = {
   bone: {
-    name: 'The Bone Tee',
-    sub: '280gsm · bone-white',
+    name: t('product.bone.name'),
+    sub: t('product.bone.sub'),
     price: 200,
     img: 'images/white-tee-model.jpg'
   },
   ink: {
-    name: 'The Ink Tee',
-    sub: '280gsm · ink-black',
+    name: t('product.ink.name'),
+    sub: t('product.ink.sub'),
     price: 200,
     img: 'images/black-tee-model.jpg'
+  }
+};
+
+const I18N = {
+  en: {
+    'nav.shop': 'Shop',
+    'nav.story': 'Story',
+    'nav.fabric': 'Fabric',
+    'nav.field': 'Field',
+    'nav.cart': 'Cart',
+
+    'hero.cap': 'Plate 01 · The Bone Tee · The Maldives',
+    'hero.tag': 'A premium heavyweight cotton tee label, built on weight, restraint, and a single fabric story.',
+    'hero.cta': 'Shop the tee',
+    'hero.meta': '280gsm · Garment-dyed · Made for the layer',
+
+    'shop.eyebrow': 'The Collection',
+    'shop.title': 'Two tees.<br>The same fabric.',
+    'shop.viewDetails': 'View details',
+
+    'product.price': '200',
+    'product.bone.name': 'The Bone Tee',
+    'product.bone.sub': '280gsm · bone-white garment-dyed cotton',
+    'product.bone.tag': 'A heavyweight cotton tee, in unbleached cotton tone.',
+    'product.bone.fabric': '100% long-staple cotton, 280gsm heavyweight jersey, garment-dyed for soft hand-feel and lived-in color depth.',
+    'product.ink.name': 'The Ink Tee',
+    'product.ink.sub': '280gsm · ink-black garment-dyed cotton',
+    'product.ink.tag': 'A heavyweight cotton tee, in our deepest garment-dyed black.',
+    'product.ink.fabric': '100% long-staple cotton, 280gsm heavyweight jersey, garment-dyed in deep ink black for matte depth and slight variation between pieces.',
+
+    'spec.fabric': 'Fabric',
+    'spec.fit': 'Fit',
+    'spec.fitValue': 'Relaxed through the chest, tapered at the hem. Cut to drape clean over a body at rest.',
+    'spec.origin': 'Origin',
+    'spec.originValue': 'Knit + sewn in Guangzhou, China. Cotton sourced from Xinjiang long-staple.',
+    'spec.care': 'Care',
+    'spec.careValue': 'Cold wash inside-out. Hang dry. Iron low. No bleach. No fabric softener.',
+
+    'detail.size': 'Size',
+    'detail.sizeGuide': 'Size guide',
+    'detail.quantity': 'Quantity',
+    'detail.shippingNote': 'Free shipping in HK over HK$400 · Ships within 48 hours',
+    'detail.modelInfo': 'Model is 178cm / 68kg wearing size M.',
+    'detail.shipping': 'Shipping & returns',
+    'detail.shippingBody': 'Free HK shipping over HK$400. International shipping calculated at checkout. 14-day return window for unworn items in original packaging. Final sale on sale items.',
+    'detail.whyCost': 'Why it costs HK$200',
+    'detail.whyCostBody': '280gsm long-staple cotton is roughly 2× the weight of a fast-fashion tee. Garment-dye adds a multi-stage wash process. The whole thing is cut and sewn at one Guangzhou factory on a small batch run. We\'re not building margin — we\'re paying for the fabric.',
+    'detail.whyBlack': 'Why black costs the same',
+    'detail.whyBlackBody': 'Garment-dyed black is the most forgiving colorway. Slight variation between pieces — every tee has its own depth. We charge the same price because the fabric cost is the same.',
+
+    'size.xs': 'Chest 96cm · Length 64cm · Shoulder 42cm',
+    'size.s': 'Chest 100cm · Length 66cm · Shoulder 44cm',
+    'size.m': 'Chest 104cm · Length 68cm · Shoulder 46cm',
+    'size.l': 'Chest 108cm · Length 70cm · Shoulder 48cm',
+    'size.xl': 'Chest 112cm · Length 72cm · Shoulder 50cm',
+
+    'fabric.eyebrow': 'The Fabric',
+    'fabric.title': '280 grams per square meter.<br>Nothing else.',
+    'fabric.lede': 'We make one fabric. We make it heavier than anything else on the market. We garment-dye it so it feels lived-in from day one. Then we cut one tee, in two colors, and we make it well.',
+    'fabric.stat1': 'Heavyweight jersey',
+    'fabric.stat2': 'Long-staple cotton',
+    'fabric.stat3': 'Garment-dyed wash',
+    'fabric.stat4': 'The weight of fast fashion',
+
+    'brand.eyebrow': 'The Brand',
+    'brand.title': 'A single layer, considered.',
+    'brand.lede': 'Ply is a single-ingredient brand. We make heavyweight cotton tees — nothing else. 280gsm and above, garment-dyed, cut to drape clean over a body that\'s already at rest. Ply is the layer you reach for when the day is unstructured and the plan is to be present in it.',
+    'brand.body': 'We don\'t make seasonal drops. We make the same tee, in five colors, in the heaviest weight we can source — and we make it well.',
+
+    'lifestyle.eyebrow': 'In the Field',
+    'lifestyle.title': 'The tee in the world.',
+
+    'footer.tag': 'A premium heavyweight cotton tee label. Made for the layer.',
+    'footer.shop': 'Shop',
+    'footer.allTees': 'All Tees',
+    'footer.brand': 'Brand',
+    'footer.story': 'Our Story',
+    'footer.fabric': 'The Fabric',
+    'footer.field': 'Field Notes',
+    'footer.support': 'Support',
+    'footer.sizeGuide': 'Size Guide',
+    'footer.shipping': 'Shipping',
+    'footer.returns': 'Returns',
+    'footer.care': 'Care',
+    'footer.copy': '© 2026 Ply · plylabel.io · All rights reserved',
+    'footer.instagram': 'Instagram',
+    'footer.privacy': 'Privacy',
+    'footer.terms': 'Terms',
+
+    'cart.title': 'Your cart',
+    'cart.empty': 'Your cart is empty.',
+    'cart.subtotal': 'Subtotal',
+    'cart.shipping': 'Shipping',
+    'cart.total': 'Total',
+    'cart.checkout': 'Checkout',
+    'cart.clear': 'Clear cart',
+    'cart.toast': 'Added to cart',
+    'cart.addToCart': 'Add to cart — HK$ {price}',
+    'cart.added': '✓ Added — view in cart',
+    'cart.size': 'Size',
+    'cart.remove': 'Remove',
+    'cart.free': 'Free'
+  },
+  'zh-HK': {
+    'nav.shop': '選購',
+    'nav.story': '品牌故事',
+    'nav.fabric': '布料',
+    'nav.field': '實景',
+    'nav.cart': '購物車',
+
+    'hero.cap': '圖版 01 · 素白 Tee · 馬爾代夫',
+    'hero.tag': '厚身棉質 Tee 品牌，重視份量、克制與單一布料的故事。',
+    'hero.cta': '選購 Tee',
+    'hero.meta': '280gsm · 成衣染色 · 為日常穿搭而生',
+
+    'shop.eyebrow': '系列',
+    'shop.title': '兩款 Tee · 同一種布料',
+    'shop.viewDetails': '查看詳情',
+
+    'product.price': '200',
+    'product.bone.name': '素白 Tee',
+    'product.bone.sub': '280gsm · 原棉白色成衣染棉',
+    'product.bone.tag': '厚身棉質 Tee，未漂染的原棉色調。',
+    'product.bone.fabric': '100% 長絨棉，280gsm 厚身平紋針織，經成衣染色處理，手感柔軟，色澤自然。',
+    'product.ink.name': '墨黑 Tee',
+    'product.ink.sub': '280gsm · 墨黑色成衣染棉',
+    'product.ink.tag': '厚身棉質 Tee，我們最深邃的成衣染黑色。',
+    'product.ink.fabric': '100% 長絨棉，280gsm 厚身平紋針織，以深邃墨黑色成衣染色，呈現啞光深度，每件略有差異。',
+
+    'spec.fabric': '布料',
+    'spec.fit': '版型',
+    'spec.fitValue': '胸圍寬鬆，下擺略收。剪裁自然垂墜，貼合靜態身型。',
+    'spec.origin': '產地',
+    'spec.originValue': '於中國廣州織造及縫製。棉料源自新疆長絨棉。',
+    'spec.care': '護理',
+    'spec.careValue': '冷水內裏反轉清洗。懸掛自然晾乾。低溫熨燙。請勿漂白。請勿使用柔順劑。',
+
+    'detail.size': '尺寸',
+    'detail.sizeGuide': '尺寸指南',
+    'detail.quantity': '數量',
+    'detail.shippingNote': '香港地區滿 HK$400 免運費 · 48 小時內出貨',
+    'detail.modelInfo': '模特兒身高 178cm / 體重 68kg，穿着 M 碼。',
+    'detail.shipping': '運費及退換',
+    'detail.shippingBody': '香港地區滿 HK$400 免運費。海外運費於結帳時計算。14 天退換期（須未穿着及保留原包裝）。減價貨品不設退換。',
+    'detail.whyCost': '為何定價 HK$200',
+    'detail.whyCostBody': '280gsm 長絨棉比一般快時尚 Tee 重一倍。成衣染色工序需經多重洗滌。整件 Tee 由廣州一家工廠小批量剪裁及縫製。我們不堆砌利潤，寧可把錢花在布料上。',
+    'detail.whyBlack': '為何黑色同價',
+    'detail.whyBlackBody': '成衣染黑色最為寬容——每件略有深淺差異，每件 Tee 都有自己獨有的層次感。我們同價發售，因為布料成本一樣。',
+
+    'size.xs': '胸圍 96cm · 衣長 64cm · 肩寬 42cm',
+    'size.s': '胸圍 100cm · 衣長 66cm · 肩寬 44cm',
+    'size.m': '胸圍 104cm · 衣長 68cm · 肩寬 46cm',
+    'size.l': '胸圍 108cm · 衣長 70cm · 肩寬 48cm',
+    'size.xl': '胸圍 112cm · 衣長 72cm · 肩寬 50cm',
+
+    'fabric.eyebrow': '布料',
+    'fabric.title': '每平方米 280 克 · 別無其他',
+    'fabric.lede': '我們只做一款布料，做到市面上最厚重。以成衣染色處理，讓 Tee 在穿上第一天已具備舊衣服的柔軟感。然後以兩種顏色剪裁同一款 Tee，把它做好。',
+    'fabric.stat1': '厚身平紋針織',
+    'fabric.stat2': '長絨棉',
+    'fabric.stat3': '成衣染色處理',
+    'fabric.stat4': '快時尚 Tee 的兩倍重量',
+
+    'brand.eyebrow': '品牌',
+    'brand.title': '一件衣服 · 用心打磨',
+    'brand.lede': 'Ply 是個只做一件產品的品牌。我們只造厚身棉質 Tee，280gsm 以上，成衣染色，剪裁自然垂墜，貼合靜態身型。Ply 是你在一個無所事事的日子會自然拿起的單品。',
+    'brand.body': '我們不做季節性新品。我們以最重的布料，反覆造同一款 Tee、五種顏色——並把它做好。',
+
+    'lifestyle.eyebrow': '實景',
+    'lifestyle.title': 'Tee 在真實世界',
+
+    'footer.tag': '厚身棉質 Tee 品牌，為日常穿搭而生。',
+    'footer.shop': '選購',
+    'footer.allTees': '所有 Tee',
+    'footer.brand': '品牌',
+    'footer.story': '品牌故事',
+    'footer.fabric': '布料',
+    'footer.field': '實景札記',
+    'footer.support': '支援',
+    'footer.sizeGuide': '尺寸指南',
+    'footer.shipping': '運費',
+    'footer.returns': '退換',
+    'footer.care': '護理',
+    'footer.copy': '© 2026 Ply · plylabel.io · 版權所有',
+    'footer.instagram': 'Instagram',
+    'footer.privacy': '私隱政策',
+    'footer.terms': '使用條款',
+
+    'cart.title': '購物車',
+    'cart.empty': '購物車是空的。',
+    'cart.subtotal': '小計',
+    'cart.shipping': '運費',
+    'cart.total': '總計',
+    'cart.checkout': '結帳',
+    'cart.clear': '清空購物車',
+    'cart.toast': '已加入購物車',
+    'cart.addToCart': '加入購物車 — HK$ {price}',
+    'cart.added': '✓ 已加入 — 查看購物車',
+    'cart.size': '尺寸',
+    'cart.remove': '移除',
+    'cart.free': '免費'
   }
 };
 
@@ -665,7 +914,7 @@ function addToCart(slug) {
   if (existing) { existing.qty += qty; }
   else { cart.push({ key, slug, size, qty }); }
   writeCart(cart);
-  showToast('Added to cart');
+  showToast(t('cart.toast'));
 }
 
 function removeFromCart(key) {
@@ -707,9 +956,9 @@ function renderCart() {
     return '<div class="cart-item" data-key="' + it.key + '">' +
       '<div class="cart-item-img"><img src="' + p.img + '" alt="' + p.name + '"></div>' +
       '<div><div class="cart-item-name">' + p.name + '</div>' +
-        '<div class="cart-item-meta">' + p.sub + ' · Size ' + it.size + '</div>' +
+        '<div class="cart-item-meta">' + p.sub + ' · ' + t('cart.size') + ' ' + it.size + '</div>' +
         '<div class="cart-item-qty"><button data-cart-act="dec">−</button><span>' + it.qty + '</span><button data-cart-act="inc">+</button></div>' +
-        '<button class="cart-item-remove" data-cart-remove="' + it.key + '">Remove</button></div>' +
+        '<button class="cart-item-remove" data-cart-remove="' + it.key + '">' + t('cart.remove') + '</button></div>' +
       '<div class="cart-item-price">HK$ ' + line.toLocaleString() + '</div>' +
     '</div>';
   }).join('');
@@ -717,7 +966,7 @@ function renderCart() {
   const subtotal = cart.reduce((s, it) => s + PRODUCTS[it.slug].price * it.qty, 0);
   const shipping = subtotal >= 400 ? 0 : 30;
   document.getElementById('cartSubtotal').textContent = 'HK$ ' + subtotal.toLocaleString();
-  document.getElementById('cartShipping').textContent = shipping === 0 ? 'Free' : 'HK$ ' + shipping;
+  document.getElementById('cartShipping').textContent = shipping === 0 ? t('cart.free') : 'HK$ ' + shipping;
   document.getElementById('cartTotal').textContent = 'HK$ ' + (subtotal + shipping).toLocaleString();
   foot.style.display = 'block';
 }
@@ -761,11 +1010,11 @@ document.querySelectorAll('[data-add]').forEach(btn => {
     const slug = btn.dataset.add;
     addToCart(slug);
     btn.classList.add('added');
-    btn.textContent = '✓ Added — view in cart';
+    btn.textContent = t('cart.added');
     setTimeout(() => {
       btn.classList.remove('added');
       const p = PRODUCTS[slug];
-      btn.textContent = 'Add to cart — HK$ ' + p.price;
+      btn.textContent = t('cart.addToCart').replace('{price}', p.price);
     }, 2200);
   });
 });
@@ -785,15 +1034,71 @@ document.getElementById('clearCart').addEventListener('click', e => { e.preventD
 /* ===== Toast ===== */
 let toastTimer;
 function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  const toastEl = document.getElementById('toast');
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
+  toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2400);
 }
 
 /* ===== Init ===== */
 renderCart();
+</script>
+
+<script>
+/* ===== Ply i18n apply + toggle (I18N dict defined in script above) ===== */
+
+function applyLang(lang) {
+  if (!I18N[lang]) lang = 'en';
+  currentLang = lang;
+  document.documentElement.setAttribute('lang', lang);
+
+  // Swap text for every [data-i18n]
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const val = t(key);
+    if (val.includes('<br')) { el.innerHTML = val; }
+    else { el.textContent = val; }
+  });
+
+  // Update product data (so cart shows correct names + subs)
+  PRODUCTS.bone.name = t('product.bone.name');
+  PRODUCTS.bone.sub  = t('product.bone.sub');
+  PRODUCTS.ink.name  = t('product.ink.name');
+  PRODUCTS.ink.sub   = t('product.ink.sub');
+
+  // Update Add-to-cart button labels (template-based, with price)
+  const tpl = t('cart.addToCart');
+  document.querySelectorAll('.add-to-cart[data-add]').forEach(btn => {
+    if (btn.classList.contains('added')) {
+      btn.textContent = t('cart.added');
+    } else {
+      const slug = btn.dataset.add;
+      btn.textContent = tpl.replace('{price}', PRODUCTS[slug].price);
+    }
+  });
+
+  // Toggle UI state
+  document.querySelectorAll('.lang-toggle button[data-lang]').forEach(b => {
+    const active = b.dataset.lang === lang;
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+
+  // Persist
+  localStorage.setItem('ply-lang-v1', lang);
+
+  // Re-render cart so line items show the right language
+  if (typeof renderCart === 'function') renderCart();
+}
+
+// Wire up the toggle buttons
+document.querySelectorAll('.lang-toggle button[data-lang]').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+// Apply on load (after the cart script has set up PRODUCTS + renderCart)
+applyLang(currentLang);
 </script>
 
 </body>
