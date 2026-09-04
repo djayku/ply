@@ -674,25 +674,6 @@
 
 <script>
 /* ===== Tiny i18n helper (full dictionary lives in the i18n script block below) ===== */
-let currentLang = (function(){ try { return localStorage.getItem('ply-lang-v1') || 'en'; } catch(e){ return 'en'; } })();
-function t(key){ return (window.I18N && window.I18N[currentLang] && window.I18N[currentLang][key]) || (window.I18N && window.I18N.en[key]) || key; }
-
-/* ===== Ply cart (localStorage, no backend) ===== */
-const PRODUCTS = {
-  bone: {
-    name: t('product.bone.name'),
-    sub: t('product.bone.sub'),
-    price: 200,
-    img: 'images/white-tee-model.jpg'
-  },
-  ink: {
-    name: t('product.ink.name'),
-    sub: t('product.ink.sub'),
-    price: 200,
-    img: 'images/black-tee-model.jpg'
-  }
-};
-
 const I18N = {
   en: {
     'nav.shop': 'Shop',
@@ -893,6 +874,26 @@ const I18N = {
     'cart.free': '免費'
   }
 };
+
+let currentLang = (function(){ try { return localStorage.getItem('ply-lang-v1') || 'en'; } catch(e){ return 'en'; } })();
+function t(key){ return (typeof I18N !== 'undefined' && I18N[currentLang] && I18N[currentLang][key]) || (typeof I18N !== 'undefined' && I18N.en && I18N.en[key]) || key; }
+
+/* ===== Ply cart (localStorage, no backend) ===== */
+const PRODUCTS = {
+  bone: {
+    name: t('product.bone.name'),
+    sub: t('product.bone.sub'),
+    price: 200,
+    img: 'images/white-tee-model.jpg'
+  },
+  ink: {
+    name: t('product.ink.name'),
+    sub: t('product.ink.sub'),
+    price: 200,
+    img: 'images/black-tee-model.jpg'
+  }
+};
+
 
 const STORAGE_KEY = 'ply-cart-v1';
 
